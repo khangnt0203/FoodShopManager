@@ -1,0 +1,356 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{EA3F75F9-0FEE-4DB9-BF2E-B78D106C10A8}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>FoodShopManagement_WF</RootNamespace>
+    <AssemblyName>FoodShopManagement-WF</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Data.Desktop.v20.2, Version=20.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Data.v20.2, Version=20.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\packages\DevExpress.Data.20.2.5\lib\net452\DevExpress.Data.v20.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Printing.v20.2.Core, Version=20.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Utils.v20.2, Version=20.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DTO, Version=1.0.0.0, Culture=neutral, PublicKeyToken=22869618b5515b60, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\DTO\DTO.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Remoting" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UIAutomationClient" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Model\ICategoryModel.cs" />
+    <Compile Include="Model\ICustomerModel.cs" />
+    <Compile Include="Model\ILoginModel.cs" />
+    <Compile Include="Model\IEmployeeModel.cs" />
+    <Compile Include="Model\impl\CategoryModel.cs" />
+    <Compile Include="Model\impl\CustomerModel.cs" />
+    <Compile Include="Model\impl\LoginModel.cs" />
+    <Compile Include="Model\impl\EmployeeModel.cs" />
+    <Compile Include="Model\impl\MyProfileDetailModel.cs" />
+    <Compile Include="Model\impl\OrderModel.cs" />
+    <Compile Include="Model\impl\ProductModel.cs" />
+    <Compile Include="Model\IMyProfileDetailModel.cs" />
+    <Compile Include="Model\IOrderModel.cs" />
+    <Compile Include="Model\IProductModel.cs" />
+    <Compile Include="Presenter\IWarehousePresenter.cs" />
+    <Compile Include="Presenter\ILoginPresenter.cs" />
+    <Compile Include="Presenter\IEmployeePresenter.cs" />
+    <Compile Include="Presenter\impl\WarehousePresenter.cs" />
+    <Compile Include="Presenter\impl\EmployeePresenter.cs" />
+    <Compile Include="Presenter\impl\LoginPresenter.cs" />
+    <Compile Include="Presenter\impl\MyProfileDetailPresenter.cs" />
+    <Compile Include="Presenter\impl\SaleManagerPresenter.cs" />
+    <Compile Include="Presenter\IMyProfileDetailPresenter.cs" />
+    <Compile Include="Presenter\ISaleManagerPresenter.cs" />
+    <Compile Include="UI\frmCategoryDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\frmCategoryDetail.Designer.cs">
+      <DependentUpon>frmCategoryDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\frmEmployeeDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\frmEmployeeDetail.Designer.cs">
+      <DependentUpon>frmEmployeeDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\frmCustomerDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\frmCustomerDetail.Designer.cs">
+      <DependentUpon>frmCustomerDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\frmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\frmLogin.Designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UI\frmManager_main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\frmManager_main.Designer.cs">
+      <DependentUpon>frmManager_main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\frmManager_v2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\frmManager_v2.Designer.cs">
+      <DependentUpon>frmManager_v2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\frmMyProfileDetailcs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\frmMyProfileDetailcs.Designer.cs">
+      <DependentUpon>frmMyProfileDetailcs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\frmSaleManager_V2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\frmSaleManager_V2.Designer.cs">
+      <DependentUpon>frmSaleManager_V2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\frmWarehouse_V2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\frmWarehouse_V2.Designer.cs">
+      <DependentUpon>frmWarehouse_V2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\frmProductDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\frmProductDetail.Designer.cs">
+      <DependentUpon>frmProductDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Util\ApiConnection.cs" />
+    <Compile Include="Util\ConvertCustom.cs" />
+    <Compile Include="Util\MessageUtil.cs" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="UI\frmCategoryDetail.resx">
+      <DependentUpon>frmCategoryDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\frmCustomerDetail.resx">
+      <DependentUpon>frmCustomerDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\frmEmployeeDetail.resx">
+      <DependentUpon>frmEmployeeDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\frmManager_main.resx">
+      <DependentUpon>frmManager_main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\frmManager_v2.resx">
+      <DependentUpon>frmManager_v2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\frmMyProfileDetailcs.resx">
+      <DependentUpon>frmMyProfileDetailcs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\frmProductDetail.resx">
+      <DependentUpon>frmProductDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\frmSaleManager_V2.resx">
+      <DependentUpon>frmSaleManager_V2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\frmWarehouse_V2.resx">
+      <DependentUpon>frmWarehouse_V2.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\DTO.TblCategoryDTO.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Untitled.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search-flat-circle-icon-vector-15199282.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\122932.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\182944.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SVG401253.zoom.d.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Untitled2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Untitled12.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Untitled13.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Untitled14.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\loginicon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pngtree-simple-green-information-login-h5-background-material-image_124699.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pngtree-simple-green-information-login-h5-background-material-image_1246991.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LOGIN_NOW_Button-1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Picture1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\login.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Picture2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\24816-7-sign-up-button-photo-thumb.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\loginiconn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pngtree-simple-green-information-login-h5-background-material-image_1246992.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Picture3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1229321.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cancel_40px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cancel_40px1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add_50px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit_property_50px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add1_50px %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add1_50px %281%291.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add_60px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\remove_50px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\remove_60px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit_calendar_50px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\circled_user_female_skin_type_7_50px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\contact_details_50px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add_50px1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\minus_50px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete_48px1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search_50px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\checkmark_50px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit_property_50px1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\checkmark_50px1.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
